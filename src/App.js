@@ -1,8 +1,13 @@
 import React from 'react'
-import Main from './Main'
+import { Switch, Route } from 'react-router-dom'
+import Login from './layouts/Login'
+import Default from './layouts/Default'
 
 const App = () => (
-  <Main />
+  <Switch>
+    <Route path="/login" component={Login} />
+    <Route component={Default} />
+  </Switch>
 )
 
 export default App
