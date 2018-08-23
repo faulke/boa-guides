@@ -1,8 +1,13 @@
 import React from 'react'
-import Main from '../Main'
+import Home from '../pages/Home'
+import NotFound from '../pages/NotFound'
+import { Switch, Route } from 'react-router-dom'
 
 const Default = () => (
-  <Main />
+  <Switch>
+    <Route path="/home" component={Home} />
+    <Route component={NotFound} />
+  </Switch>
 )
 
 export default Default
