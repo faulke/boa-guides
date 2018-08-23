@@ -6,44 +6,49 @@ class LoginForm extends Component {
     super()
 
     this.login = this.login.bind(this)
+    this.input = this.input.bind(this)
   }
 
   login (evt) {
     return this.props.history.push('/home')
-  } 
+  }
+
+  input (evt) {
+    console.log(evt.target.value)
+  }
 
   render () {
     return (
       <form>
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input" type="text" placeholder="Username" />
-            <span class="icon is-small is-left">
-              <i class="fas fa-user"></i>
+        <div className="field">
+          <label className="label">Username</label>
+          <div className="control has-icons-left has-icons-right">
+            <input className="input" type="text" placeholder="Username" onInput={this.input}/>
+            <span className="icon is-small is-left">
+              <i className="fas fa-user"></i>
             </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input" type="text" placeholder="Password" />
-            <span class="icon is-small is-left">
-              <i class="fas fa-user"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
+            <span className="icon is-small is-right">
+              <i className="fas fa-check"></i>
             </span>
           </div>
         </div>
-        <div class="field is-grouped">
-          <div class="control">
+        <div className="field">
+          <label className="label">Password</label>
+          <div className="control has-icons-left has-icons-right">
+            <input className="input" type="text" placeholder="Password" />
+            <span className="icon is-small is-left">
+              <i className="fas fa-user"></i>
+            </span>
+            <span className="icon is-small is-right">
+              <i className="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+        <div className="field is-grouped">
+          <div className="control">
             <button
               type="button"
-              class="button is-link"
+              className="button is-link"
               onClick={this.login}
             >Submit</button>
           </div>
