@@ -15,9 +15,39 @@ class LoginForm extends Component {
   render () {
     return (
       <form>
-        <input type="text" placeholder="User name" />
-        <input type="text" placeholder="Password" />
-        <button type="button" onClick={this.login}>Login</button>
+        <div class="field">
+          <label class="label">Username</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Username" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Password" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button
+              type="button"
+              class="button is-link"
+              onClick={this.login}
+            >Submit</button>
+          </div>
+        </div>
       </form> 
     )
   }
