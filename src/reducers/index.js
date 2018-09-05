@@ -2,7 +2,7 @@ const initialState = {
 
 }
 
-function app (state, action) {
+const app = (state, action) => {
   if (typeof state === 'undefined') {
     return initialState
   }
