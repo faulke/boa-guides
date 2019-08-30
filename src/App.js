@@ -1,11 +1,13 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
 import Default from './layouts/Default'
-import reducers from './reducers'
+import configureStore from './store/configureStore'
 import Amplify from 'aws-amplify'
 import Authenticator from './components/auth/Authenticator'
 import Loading from './components/theme/Loading'
+import { PersistGate } from 'redux-persist/es/integration/react'
+
+const { persistor, store } = configureStore()
 
 const oauth = {
   domain: process.env.COGNITO_DOMAIN,
@@ -25,17 +27,14 @@ Amplify.configure({
   }
 })
 
-const store = createStore(
-  reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // eslint-disable-line
-)
-
 const App = () => (
   <Provider store={store}>
-    <Authenticator>
-      <Loading />
-      <Default />
-    </Authenticator>
+    <PersistGate loading={null} persistor={persistor}>
+      <Authenticator>
+        <Loading />
+        <Default />
+      </Authenticator>
+    </PersistGate>
   </Provider> 
 )
 

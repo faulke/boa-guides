@@ -24,8 +24,8 @@ const Header = (props) => (
         <Link to="/" className="navbar-item">
           Home
         </Link>
-        <Link to="/browse" className="navbar-item">
-          Browse
+        <Link to="/explore" className="navbar-item">
+          Explore
         </Link>
       </div>
 
@@ -35,14 +35,25 @@ const Header = (props) => (
         </Link>
         {
           props.user ? (
-            <div className="navbar-item has-dropdown is-hoverable">
-              <span className="navbar-link">
-                { props.user.name || props.user.username }
-              </span>
-              <div className="navbar-dropdown is-right">
-                <span className="navbar-item">
-                  <SignOut { ...props } />
+            <div className={styles.userNav}>
+              <Link to="/trips" className="navbar-item">
+                Trips
+              </Link>
+              <Link to="/saved" className="navbar-item">
+                Saved
+              </Link>
+              <div className="navbar-item has-dropdown is-hoverable">
+                <span className="navbar-link">
+                  { props.user.name || props.user.username }
                 </span>
+                <div className="navbar-dropdown is-right">
+                  <Link to={`/users/${props.user.userId}`} className="navbar-item">
+                    Profile
+                  </Link>
+                  <span className="navbar-item">
+                    <SignOut { ...props } />
+                  </span>
+                </div>
               </div>
             </div>
           ) : (
