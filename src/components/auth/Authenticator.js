@@ -32,10 +32,9 @@ class Authenticator extends Component {
         this.changeState('signedIn')
         const { payload } = user.signInUserSession.idToken
         this.props.setUser(payload)
-      } else {
-        this.changeState('signIn')
       }
     } catch (error) {
+      this.props.setUser(null)
       this.changeState('signIn')
     }
   }

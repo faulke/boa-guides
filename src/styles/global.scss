@@ -1,2 +1,10 @@
 @charset "utf-8";
 @import "~bulma/bulma";
+
+.navbar-item {
+  color: whitesmoke !important;
+
+  &:hover {
+    background-color: #292929 !important;
+  }
+}
